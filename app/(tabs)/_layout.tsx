@@ -6,7 +6,7 @@ const TabLayout = () => {
   return (
     <Tabs screenOptions={{ tabBarShowLabel: false }}>
       <Tabs.Screen
-        name="Home"
+        name="home"
         options={{
           title: "Home",
           headerShown: false,
@@ -20,41 +20,13 @@ const TabLayout = () => {
         }}
       />
       <Tabs.Screen
-        name="rover-monitor"
+        name="addTransaction"
         options={{
-          title: "Monitor",
+          title: "Add Transaction",
           headerShown: false,
           tabBarIcon: ({ color, focused }) => (
             <Icon
               name={focused ? "compass" : "compass-outline"}
-              size={24}
-              color={color}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="analytics"
-        options={{
-          title: "Analytics",
-          headerShown: false,
-          tabBarIcon: ({ color, focused }) => (
-            <Icon
-              name={focused ? "analytics" : "analytics-outline"}
-              size={24}
-              color={color}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="profile"
-        options={{
-          title: "Profile",
-          headerShown: false,
-          tabBarIcon: ({ color, focused }) => (
-            <Icon
-              name={focused ? "person" : "person-outline"}
               size={24}
               color={color}
             />
