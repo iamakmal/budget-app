@@ -23,7 +23,7 @@ const StatusCard: React.FC<StatusCardProps> = ({
 }) => {
   return (
     <View
-      className={`flex ${bgColor} rounded-3xl w-48 p-5 justify-center items-start ${containerStyles}`}
+      className={`flex flex-row gap-5 ${bgColor} rounded-3xl w-64 p-5 justify-center items-start ${containerStyles}`}
     >
       <View className="flex">
         <Icon name={iconName} size={48} color={iconColor} />

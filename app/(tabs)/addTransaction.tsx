@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { SafeAreaView, View } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import React, { useState } from "react";
 import CustomInputField from "@/components/CustomInputField";
@@ -30,7 +30,7 @@ const AddTransaction = () => {
   };
 
   return (
-    <View>
+    <SafeAreaView style={{ flex: 1, padding: 20 }}>
       <Picker
         selectedValue={type}
         onValueChange={(value: string) =>
@@ -64,7 +64,7 @@ const AddTransaction = () => {
         <Picker.Item label="Bank" value="bank" />
       </Picker>
       <CustomButton label="Add Transaction" onPress={handleSubmit} />
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -1,6 +1,6 @@
 import * as SQLite from "expo-sqlite";
 
-const db = SQLite.openDatabaseSync("finance.db");
+export const db = SQLite.openDatabaseSync("finance.db");
 
 export type Transaction = {
   id?: number;
@@ -12,7 +12,7 @@ export type Transaction = {
   account: "cash" | "bank";
 };
 
-const initDatabase = () => {
+export const initDatabase = () => {
   db.execSync(`
     CREATE TABLE IF NOT EXISTS transactions (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -26,5 +26,3 @@ const initDatabase = () => {
   `);
   console.log("Database and table created successfully");
 };
-
-export { db, initDatabase, Transaction };
