@@ -31,7 +31,7 @@ const TabLayout = () => {
           headerShown: true,
           tabBarIcon: ({ color, focused }) => (
             <Icon
-              name={focused ? "compass" : "compass-outline"}
+              name={focused ? "add-circle" : "add-circle-outline"}
               size={24}
               color={color}
             />

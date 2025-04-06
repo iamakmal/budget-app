@@ -28,7 +28,7 @@ const home = () => {
       <SafeAreaView
         style={{ flex: 1, padding: 20, backgroundColor: "#ffffff" }}
       >
-        <View className="flex flex-row justify-center gap-5 mt-5 mb-10 p-2">
+        <View className="flex flex-row justify-center gap-4 mt-5 mb-10">
           <StatusCard
             iconName="cash-outline"
             iconColor="red"

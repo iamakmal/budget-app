@@ -1,4 +1,4 @@
-import { SafeAreaView, View, StyleSheet, Text } from "react-native";
+import { SafeAreaView, View, StyleSheet, Text, ScrollView } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import React, { useState } from "react";
 import CustomInputField from "@/components/CustomInputField";
@@ -74,52 +74,54 @@ const AddTransaction = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, padding: 20, backgroundColor: "#ffffff" }}>
-      {renderPicker(
-        "Select a type...",
-        type,
-        (val) => setType(val as "income" | "expense"),
-        [
-          { label: "Income", value: "income" },
-          { label: "Expense", value: "expense" },
-        ],
-        "type"
-      )}
-      <CustomInputField
-        placeholder="Amount"
-        value={amount}
-        handleChangeText={setAmount}
-        keyboardType="numeric"
-        containerStyles="my-2"
-      />
-      {renderPicker(
-        "Select a category...",
-        category,
-        setCategory,
-        categories,
-        "category"
-      )}
-      <CustomInputField
-        placeholder="Description"
-        value={description}
-        handleChangeText={setDescription}
-        containerStyles="my-2"
-      />
-      {renderPicker(
-        "Select an account...",
-        account,
-        (val) => setAccount(val as "cash" | "bank"),
-        [
-          { label: "💶 Cash", value: "cash" },
-          { label: "🏦 Bank", value: "bank" },
-        ],
-        "account"
-      )}
-      <CustomButton
-        label="Add Transaction"
-        onPress={handleSubmit}
-        textStyles="text-white"
-        isDisabled={!type || !amount || !category || !description || !account}
-      />
+      <ScrollView>
+        {renderPicker(
+          "Select a type...",
+          type,
+          (val) => setType(val as "income" | "expense"),
+          [
+            { label: "Income", value: "income" },
+            { label: "Expense", value: "expense" },
+          ],
+          "type"
+        )}
+        <CustomInputField
+          placeholder="Amount"
+          value={amount}
+          handleChangeText={setAmount}
+          keyboardType="numeric"
+          containerStyles="my-2"
+        />
+        {renderPicker(
+          "Select a category...",
+          category,
+          setCategory,
+          categories,
+          "category"
+        )}
+        <CustomInputField
+          placeholder="Description"
+          value={description}
+          handleChangeText={setDescription}
+          containerStyles="my-2"
+        />
+        {renderPicker(
+          "Select an account...",
+          account,
+          (val) => setAccount(val as "cash" | "bank"),
+          [
+            { label: "💶 Cash", value: "cash" },
+            { label: "🏦 Bank", value: "bank" },
+          ],
+          "account"
+        )}
+        <CustomButton
+          label="Add Transaction"
+          onPress={handleSubmit}
+          textStyles="text-white"
+          isDisabled={!type || !amount || !category || !description || !account}
+        />
+      </ScrollView>
     </SafeAreaView>
   );
 };

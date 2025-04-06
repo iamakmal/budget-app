@@ -23,14 +23,14 @@ const StatusCard: React.FC<StatusCardProps> = ({
 }) => {
   return (
     <View
-      className={`flex flex-row gap-5 ${bgColor} rounded-3xl w-64 p-5 justify-center items-start ${containerStyles}`}
+      className={`flex flex-col gap-1 ${bgColor} rounded-3xl w-52 p-5 justify-center items-center ${containerStyles}`}
     >
       <View className="flex">
         <Icon name={iconName} size={48} color={iconColor} />
       </View>
       <View className="flex flex-col">
         <Text className="text-2xl">{name}</Text>
-        <Text className={`text-2xl font-bold ${textStyles}`}>
+        <Text className={`text-2xl font-bold text-center ${textStyles}`}>
           <Text className="text-base font-semibold">Rs.</Text>
           {value}
         </Text>
