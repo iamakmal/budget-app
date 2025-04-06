@@ -4,12 +4,17 @@ import { Ionicons as Icon } from "@expo/vector-icons";
 
 const TabLayout = () => {
   return (
-    <Tabs screenOptions={{ tabBarShowLabel: false }}>
+    <Tabs
+      screenOptions={{
+        tabBarShowLabel: false,
+        headerTitleAlign: "center",
+      }}
+    >
       <Tabs.Screen
         name="home"
         options={{
           title: "Home",
-          headerShown: false,
+          headerShown: true,
           tabBarIcon: ({ color, focused }) => (
             <Icon
               name={focused ? "home" : "home-outline"}
@@ -23,7 +28,7 @@ const TabLayout = () => {
         name="addTransaction"
         options={{
           title: "Add Transaction",
-          headerShown: false,
+          headerShown: true,
           tabBarIcon: ({ color, focused }) => (
             <Icon
               name={focused ? "compass" : "compass-outline"}

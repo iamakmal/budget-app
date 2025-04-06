@@ -4,12 +4,12 @@ export const db = SQLite.openDatabaseSync("finance.db");
 
 export type Transaction = {
   id?: number;
-  type: "income" | "expense";
+  type: string;
   amount: number;
   category: string;
   description?: string;
   date: string;
-  account: "cash" | "bank";
+  account: string;
 };
 
 export const initDatabase = () => {
@@ -24,5 +24,6 @@ export const initDatabase = () => {
       account TEXT NOT NULL
     );
   `);
-  console.log("Database and table created successfully");
+
+  console.log("Database and tables created successfully");
 };

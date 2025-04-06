@@ -2,12 +2,12 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { db, Transaction } from "./dbConfig";
 
 export const addTransaction = async (transaction: {
-  type: "income" | "expense";
+  type: string;
   amount: number;
   category: string;
   description: string;
   date: string;
-  account: "cash" | "bank";
+  account: string;
 }) => {
   db.execSync(
     `INSERT INTO transactions (type, amount, category, description, date, account) VALUES ('${transaction.type}', ${transaction.amount}, '${transaction.category}', '${transaction.description}', '${transaction.date}', '${transaction.account}');`
@@ -63,5 +63,23 @@ export const useCalculateBankBalance = () => {
   return useQuery({
     queryKey: ["bank-balance"],
     queryFn: () => calculateBalance("bank"),
+  });
+};
+
+export const deleteTransaction = async (id: number) => {
+  db.execSync(`DELETE FROM transactions WHERE id = ${id};`);
+  console.log("Transaction deleted successfully");
+};
+
+export const useDeleteTransaction = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: deleteTransaction,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["transactions"] });
+      queryClient.invalidateQueries({ queryKey: ["cash-balance"] });
+      queryClient.invalidateQueries({ queryKey: ["bank-balance"] });
+    },
   });
 };

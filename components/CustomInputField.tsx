@@ -62,7 +62,7 @@ const CustomInputField: React.FC<CustomInputFieldProps> = ({
           </TouchableOpacity>
         )}
       </View>
-      <Text className="text-lg pl-3 text-red-500">{error}</Text>
+      {error && <Text className="text-lg pl-3 text-red-500">{error}</Text>}
     </View>
   );
 };
